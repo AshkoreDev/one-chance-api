@@ -1,10 +1,12 @@
 const express = require('express');
+const { configOptions } = require('./config/config.js');
+const routerApi = require('./routes/index.js');
 
 const app = express();
-const port = 3000;
+const port = configOptions.port;
 
 app.use(express.json());
+routerApi(app);
+app.use((req, res) => res.status(404).json({ message: 'ERROR EN LA SOLICITUD.' }));
 
-app.listen(port, () => {
-  console.log(`http://localhost:${port}`);
-});
+app.listen(port, () => console.log(`http://localhost:${port}`));

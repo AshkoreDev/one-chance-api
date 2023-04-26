@@ -1,11 +1,11 @@
 const express = require('express');
 
-const customerRouter = require('./specie.router.js');
-const customerRouter = require('./breed.router.js');
-const customerRouter = require('./employee.router.js');
+const specieRouter = require('./specie.router.js');
+const breedRouter = require('./breed.router.js');
+const employeeRouter = require('./employee.router.js');
 const userRouter = require('./user.router.js');
-const customerRouter = require('./pet.router.js');
-const customerRouter = require('./adoption-detail.router.js');
+const petRouter = require('./pet.router.js');
+const adoptionDetailRouter = require('./adoption-detail.router.js');
 
 
 function routerApi(app) {
@@ -13,12 +13,12 @@ function routerApi(app) {
   const router = express.Router();
   app.use('/api/v1', router);
 
-  router.use('/species', customerRouter);
-  router.use('/breeds', customerRouter);
-  router.use('/employees', customerRouter);
-  router.use('/users', userRouter);
-  router.use('/pets', productRouter);
-  router.use('/adoptions-details', authRouter);
+  // router.use('/species', specieRouter);
+  // router.use('/breeds', breedRouter);
+  // router.use('/employees', employeeRouter);
+  // router.use('/users', userRouter);
+  // router.use('/pets', petRouter);
+  // router.use('/adoptions-details', adoptionDetailRouter);
 };
 
 

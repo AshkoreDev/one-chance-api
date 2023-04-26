@@ -2,18 +2,28 @@
   "name": "one-chance-api",
   "version": "1.0.0",
   "description": "",
-  "main": "./api/index.js",
+  "main": "api/index.js",
   "scripts": {
     "dev": "nodemon api/index.js",
-    "start": "node api/index.js"
+    "start": "node api/index.js",
+    "migrations:generate": "sequelize-cli migration:generate --name",
+    "migrations:run": "sequelize-cli db:migrate",
+    "migrations:revert": "sequelize-cli db:migrate:undo",
+    "migrations:error": "sequelize-cli db:migrate --debug",
+    "seeders:generate": "sequelize-cli seed:generate --name",
+    "seeders:run": "sequelize-cli db:seed:all"
   },
   "keywords": [],
   "author": "Aracely Alba",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^2.0.22"
+    "nodemon": "^2.0.22",
+    "sequelize-cli": "^6.3.0"
   },
   "dependencies": {
-    "express": "^4.18.2"
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mysql2": "^3.2.0",
+    "sequelize": "^6.30.0"
   }
 }
