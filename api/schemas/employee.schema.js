@@ -1,6 +1,6 @@
 const Joi = require('joi');
 
-const customerId = Joi.number().integer();
+const employeeId = Joi.number().integer();
 
 const firstName = Joi.string().min(1).max(100);
 
@@ -23,11 +23,11 @@ const address = Joi.string().min(1).max(100);
 const active = Joi.string().min(1).max(1);
 
 
-const idCustomerSchema = Joi.object({
-  customerId: customerId.required()
+const idEmployeeSchema = Joi.object({
+  employeeId: employeeId.required()
 });
 
-const createCustomerSchema = Joi.object({
+const createEmployeeSchema = Joi.object({
   firstName: firstName.required(),
   lastName: lastName.required(),
   nationality: nationality.required(),
@@ -39,7 +39,7 @@ const createCustomerSchema = Joi.object({
   address: address
 });
 
-const updateCustomerSchema = Joi.object({
+const updateEmployeeSchema = Joi.object({
   firstName: firstName.required(),
   lastName: lastName.required(),
   nationality: nationality,
@@ -53,4 +53,4 @@ const updateCustomerSchema = Joi.object({
 });
 
 
-module.exports = { idCustomerSchema, createCustomerSchema, updateCustomerSchema };
+module.exports = { idEmployeeSchema, createEmployeeSchema, updateEmployeeSchema };
