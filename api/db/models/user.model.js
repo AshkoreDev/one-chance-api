@@ -40,9 +40,9 @@ const UserSchema = {
     onDelete: 'CASCADE'
   },
   employeeId: {
-    allowNull: false,
+    allowNull: true,
+    unique: true,
     field: 'employee_id',
-    defaultValue: 3,
     type: DataTypes.INTEGER(10),
     references: {
       model: EMPLOYEE_TABLE,
@@ -79,7 +79,7 @@ class User extends Model {
 
   static associate(models) {
     this.belongsTo(models.Role, { as: 'userRole', foreignKey: 'roleId' });
-    this.hasMany(models.Employee, { as: 'userEmployee', foreignKey: 'employeeId' });
+    this.belongsTo(models.Employee, { as: 'userEmployee', foreignKey: 'employeeId' });
   }
 
   static config(sequelize) {

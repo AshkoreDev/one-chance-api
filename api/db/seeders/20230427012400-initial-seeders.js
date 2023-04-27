@@ -12,8 +12,8 @@ module.exports = {
 
   async up(queryInterface) {
 
-    // await queryInterface.bulkInsert(ROLE_TABLE, roleData);
-    // await queryInterface.bulkInsert(SPECIE_TABLE, specieData);
+    await queryInterface.bulkInsert(ROLE_TABLE, roleData);
+    await queryInterface.bulkInsert(SPECIE_TABLE, specieData);
     await queryInterface.bulkInsert(BREED_TABLE, breedData);
   },
 

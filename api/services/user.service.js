@@ -28,9 +28,9 @@ class UserService {
     }
   }
 
-  async create(data) {
+  async create(body) {
 
-    const newUser = await model.create(data);
+    const newUser = await model.create(body);
 
     return newUser;
   }

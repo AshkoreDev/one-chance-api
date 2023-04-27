@@ -26,7 +26,7 @@ const createUserSchema = Joi.object({
   username: username.required(),
   password: password.required(),
   roleId: roleId.required(),
-  // employeeId: property.required()
+  employeeId: employeeId
 });
 
 const updateUserSchema = Joi.object({
@@ -34,6 +34,7 @@ const updateUserSchema = Joi.object({
   username: username,
   password: password,
   roleId: roleId,
+  employeeId: employeeId,
   recoveryToken: recoveryToken,
   active: active
 });
