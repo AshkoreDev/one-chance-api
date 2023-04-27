@@ -6,8 +6,6 @@ const DIALECT = configOptions.dbDialect;
 
 const URI = `${DIALECT}://${USER}:${PASSWORD}@${configOptions.dbHost}:${configOptions.dbPort}/${configOptions.dbDatabase}`;
 
-console.log(URI)
-
 
 module.exports = {
   development: {

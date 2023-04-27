@@ -15,7 +15,7 @@ const idRoleSchema = Joi.object({
 
 const createRoleSchema = Joi.object({
   title: title.required(),
-  description: description.required(),
+  description: description.required()
 });
 
 const updateRoleSchema = Joi.object({

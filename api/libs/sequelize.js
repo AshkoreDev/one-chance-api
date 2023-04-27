@@ -1,8 +1,8 @@
 const { Sequelize } = require('sequelize');
-const { URI, DIALECT } = require('./../config/config.js');
+const { URI, DIALECT } = require('./../db/config.js');
 const setupModels = require('./../db/models/index.js');
 
-
+console.log(URI)
 const sequelize = new Sequelize(URI, {
   dialect: DIALECT,
   // logging: true
