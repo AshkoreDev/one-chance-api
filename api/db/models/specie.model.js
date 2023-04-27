@@ -1,10 +1,10 @@
 const { Sequelize, Model, DataTypes } = require('sequelize');
 
-const ROLE_TABLE = 'roles';
+const SPECIE_TABLE = 'species';
 
-const RoleSchema = {
+const specieSchema = {
 
-  roleId: {
+  specieId: {
     allowNull: false,
     autoIncrement: true,
     primaryKey: true,
@@ -15,10 +15,6 @@ const RoleSchema = {
     allowNull: false,
     unique: true,
     type: DataTypes.STRING(20)
-  },
-  description: {
-    allowNull: false,
-    type: DataTypes.STRING(50)
   },
   active: {
     allowNull: false,
@@ -40,18 +36,19 @@ const RoleSchema = {
 };
 
 
-class Role extends Model {
+class Specie extends Model {
 
   static associate(models) {
-    this.hasMany(models.User, { as: 'roleUser', foreignKey: 'roleId' });
+    this.hasMany(models.Breed, { as: 'specieBreed', foreignKey: 'specieId' });
+    // this.hasMany(models.Pet, { as: 'speciePet', foreignKey: 'specieId' });
   }
 
   static config(sequelize) {
 
     return {
       sequelize,
-      tableName: ROLE_TABLE,
-      modelName: 'Role',
+      tableName: SPECIE_TABLE,
+      modelName: 'Specie',
       timestamps: true,
       updatedAt: 'updated_at',
       defaultScope: {
@@ -62,4 +59,4 @@ class Role extends Model {
 };
 
 
-module.exports = { ROLE_TABLE, RoleSchema, Role };
+module.exports = { SPECIE_TABLE, specieSchema, Specie };

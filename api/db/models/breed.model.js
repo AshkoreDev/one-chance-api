@@ -1,10 +1,11 @@
 const { Sequelize, Model, DataTypes } = require('sequelize');
+const { SPECIE_TABLE } = require('./specie.model.js');
 
-const ROLE_TABLE = 'roles';
+const BREED_TABLE = 'breeds';
 
-const RoleSchema = {
+const breedSchema = {
 
-  roleId: {
+  breedId: {
     allowNull: false,
     autoIncrement: true,
     primaryKey: true,
@@ -16,9 +17,16 @@ const RoleSchema = {
     unique: true,
     type: DataTypes.STRING(20)
   },
-  description: {
+  specieId: {
     allowNull: false,
-    type: DataTypes.STRING(50)
+    field: 'specie_id',
+    type: DataTypes.INTEGER(10),
+    references: {
+      model: SPECIE_TABLE,
+      key: 'id'
+    },
+    onUpdate: 'CASCADE',
+    onDelete: 'CASCADE'
   },
   active: {
     allowNull: false,
@@ -40,18 +48,18 @@ const RoleSchema = {
 };
 
 
-class Role extends Model {
+class Breed extends Model {
 
   static associate(models) {
-    this.hasMany(models.User, { as: 'roleUser', foreignKey: 'roleId' });
+    this.belongsTo(models.Specie, { as: 'breedSpecie', foreignKey: 'specieId' });
   }
 
   static config(sequelize) {
 
     return {
       sequelize,
-      tableName: ROLE_TABLE,
-      modelName: 'Role',
+      tableName: BREED_TABLE,
+      modelName: 'Breed',
       timestamps: true,
       updatedAt: 'updated_at',
       defaultScope: {
@@ -62,4 +70,4 @@ class Role extends Model {
 };
 
 
-module.exports = { ROLE_TABLE, RoleSchema, Role };
+module.exports = { BREED_TABLE, breedSchema, Breed };

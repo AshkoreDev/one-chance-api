@@ -75,7 +75,7 @@ const EmployeeSchema = {
 class Employee extends Model {
 
   static associate(models) {
-
+    this.hasOne(models.User, { as: 'employeeUser', foreignKey: 'userId' });
   }
 
   static config(sequelize) {
