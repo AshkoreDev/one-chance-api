@@ -1,10 +1,10 @@
 const { Sequelize } = require('sequelize');
-const { URI } = require('./../database/config.js');
-const setupModels  = require('./../database/models/index.js');
+const { URI, DIALECT } = require('./../config/config.js');
+const setupModels = require('./../db/models/index.js');
 
 
 const sequelize = new Sequelize(URI, {
-  dialect: 'mysql',
+  dialect: DIALECT,
   // logging: true
   logging: console.log
 });

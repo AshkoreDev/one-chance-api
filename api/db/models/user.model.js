@@ -16,7 +16,7 @@ const UserSchema = {
   email: {
     allowNull: false,
     unique: true,
-    type: DataTypes.STRING(150)
+    type: DataTypes.STRING(150),
   },
   username: {
     allowNull: true,
@@ -25,7 +25,7 @@ const UserSchema = {
   },
   password: {
     allowNull: false,
-    type: DataTypes.STRING(255)
+    type: DataTypes.STRING
   },
   roleId: {
     allowNull: false,
@@ -42,6 +42,7 @@ const UserSchema = {
   employeeId: {
     allowNull: false,
     field: 'employee_id',
+    defaultValue: 3,
     type: DataTypes.INTEGER(10),
     references: {
       model: EMPLOYEE_TABLE,
@@ -53,7 +54,7 @@ const UserSchema = {
   recoveryToken: {
     allowNull: true,
     field: 'recovery_token',
-    type: DataTypes.STRING(255)
+    type: DataTypes.STRING
   },
   active: {
     allowNull: false,
@@ -76,16 +77,14 @@ const UserSchema = {
 
 class User extends Model {
 
-  // static associate(models) {
+  static associate(models) {
 
-  //   this.belongsTo(models.Role, { as: 'userRole', foreignKey: 'roleId' });
-  //   this.belongsTo(models.Employee, { as: 'userEmployee', foreignKey: 'employeeId' });
-  // }
-    
+  }
+
   static config(sequelize) {
 
     return {
-      sequelize, 
+      sequelize,
       tableName: USER_TABLE,
       modelName: 'User',
       timestamps: true,
@@ -94,7 +93,7 @@ class User extends Model {
         attributes: { exclude: ['password', 'createdAt', 'updatedAt', 'updated_at'] }
       }
     }
-  } 
+  }
 };
 
 

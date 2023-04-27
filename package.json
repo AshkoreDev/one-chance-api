@@ -2,7 +2,7 @@
   "name": "one-chance-api",
   "version": "1.0.0",
   "description": "",
-  "main": "api/index.js",
+  "main": "index.js",
   "scripts": {
     "dev": "nodemon api/index.js",
     "start": "node api/index.js",
@@ -23,7 +23,11 @@
   "dependencies": {
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "joi": "^17.9.1",
     "mysql2": "^3.2.0",
     "sequelize": "^6.30.0"
+  },
+  "engines": {
+    "node": "13.14"
   }
 }

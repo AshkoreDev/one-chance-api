@@ -3,7 +3,6 @@ const { Sequelize, Model, DataTypes } = require('sequelize');
 const EMPLOYEE_TABLE = 'employees';
 
 const EmployeeSchema = {
-
   employeeId: {
     allowNull: false,
     autoIncrement: true,
@@ -11,8 +10,9 @@ const EmployeeSchema = {
     field: 'id',
     type: DataTypes.INTEGER(10)
   },
-  name: {
+  firstName: {
     allowNull: false,
+    field: 'first_name',
     type: DataTypes.STRING(100)
   },
   lastName: {
@@ -50,7 +50,7 @@ const EmployeeSchema = {
   },
   address: {
     allowNull: true,
-    type: DataTypes.STRING(100)
+    type: DataTypes.STRING(100),
   },
   active: {
     allowNull: false,
@@ -74,15 +74,14 @@ const EmployeeSchema = {
 
 class Employee extends Model {
 
-  // static associate(models) {
-  
-  //   this.hasOne(models.User, { as: 'employeeUser', foreignKey: 'userId' });
-  // }
+  static associate(models) {
+
+  }
 
   static config(sequelize) {
 
     return {
-      sequelize, 
+      sequelize,
       tableName: EMPLOYEE_TABLE,
       modelName: 'Employee',
       timestamps: true,
@@ -91,7 +90,7 @@ class Employee extends Model {
         attributes: { exclude: ['createdAt', 'updatedAt', 'updated_at'] }
       }
     }
-  } 
+  }
 };
 
 

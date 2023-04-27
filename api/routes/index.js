@@ -1,11 +1,11 @@
 const express = require('express');
 
-const specieRouter = require('./specie.router.js');
-const breedRouter = require('./breed.router.js');
-const employeeRouter = require('./employee.router.js');
-const userRouter = require('./user.router.js');
-const petRouter = require('./pet.router.js');
-const adoptionDetailRouter = require('./adoption-detail.router.js');
+// const specieRouter = require('./specie.router.js');
+// const breedRouter = require('./breed.router.js');
+// const employeeRouter = require('./employee.router.js');
+// const userRouter = require('./user.router.js');
+// const petRouter = require('./pet.router.js');
+// const adoptionDetailRouter = require('./adoption-detail.router.js');
 
 
 function routerApi(app) {

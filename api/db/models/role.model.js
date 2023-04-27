@@ -42,15 +42,14 @@ const RoleSchema = {
 
 class Role extends Model {
 
-  // static associate(models) {
-    
-  //   this.hasMany(models.User, { as: 'roleUser', foreignKey: 'roleId' });
-  // }
+  static associate(models) {
+
+  }
 
   static config(sequelize) {
 
     return {
-      sequelize, 
+      sequelize,
       tableName: ROLE_TABLE,
       modelName: 'Role',
       timestamps: true,
@@ -59,7 +58,7 @@ class Role extends Model {
         attributes: { exclude: ['createdAt', 'updatedAt', 'updated_at'] }
       }
     }
-  } 
+  }
 };
 
 
