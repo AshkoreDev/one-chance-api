@@ -2,11 +2,11 @@ const Joi = require('joi');
 
 const userId = Joi.number().integer();
 
-const email = Joi.string().email();
+const email = Joi.string().email().min(1).max(150);
 
 const username = Joi.string().min(1).max(20);
 
-const password = Joi.string().min(8).max(20);
+const password = Joi.string().min(1).max(250);
 
 const roleId = Joi.number().integer();
 

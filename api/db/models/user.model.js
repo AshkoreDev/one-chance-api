@@ -19,18 +19,18 @@ const UserSchema = {
     type: DataTypes.STRING(150),
   },
   username: {
-    allowNull: true,
+    allowNull: false,
     unique: true,
     type: DataTypes.STRING(20)
   },
   password: {
     allowNull: false,
-    type: DataTypes.STRING
+    type: DataTypes.STRING(250)
   },
   roleId: {
     allowNull: false,
     field: 'role_id',
-    defaultValue: 3,
+    defaultValue: 2,
     type: DataTypes.INTEGER(10),
     references: {
       model: ROLE_TABLE,
@@ -54,7 +54,7 @@ const UserSchema = {
   recoveryToken: {
     allowNull: true,
     field: 'recovery_token',
-    type: DataTypes.STRING
+    type: DataTypes.STRING(250)
   },
   active: {
     allowNull: false,

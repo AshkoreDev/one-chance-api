@@ -3,6 +3,7 @@ const { Sequelize, Model, DataTypes } = require('sequelize');
 const EMPLOYEE_TABLE = 'employees';
 
 const EmployeeSchema = {
+
   employeeId: {
     allowNull: false,
     autoIncrement: true,

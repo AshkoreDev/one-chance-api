@@ -1,10 +1,12 @@
 const { Sequelize, Model, DataTypes } = require('sequelize');
 const { SPECIE_TABLE } = require('./specie.model.js');
 const { BREED_TABLE } = require('./breed.model.js');
+const { ADOPTION_STATUS_TABLE } = require('./status.model.js');
 
 const PET_TABLE = 'pets';
 
 const PetSchema = {
+
   petId: {
     allowNull: false,
     autoIncrement: true,
@@ -71,13 +73,13 @@ const PetSchema = {
     field: 'medical_history',
     type: DataTypes.STRING(250)
   },
-  statusId: {
+  adoptionStatusId: {
     allowNull: false,
     field: 'status_id',
     defaultValue: 1,
     type: DataTypes.INTEGER(10),
     references: {
-      model: STATUS_TABLE,
+      model: ADOPTION_STATUS_TABLE,
       key: 'id'
     },
     onUpdate: 'CASCADE',
