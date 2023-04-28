@@ -6,9 +6,11 @@ const firstName = Joi.string().min(1).max(100);
 
 const lastName = Joi.string().min(1).max(100);
 
+const image = Joi.string().min(1).max(250);
+
 const nationality = Joi.string().min(1).max(3);
 
-const documentType = Joi.string().min(1).max(20);
+const documentType = Joi.string().min(1).max(1);
 
 const documentNumber = Joi.string().min(1).max(20);
 
@@ -30,6 +32,7 @@ const idEmployeeSchema = Joi.object({
 const createEmployeeSchema = Joi.object({
   firstName: firstName.required(),
   lastName: lastName.required(),
+  image: image,
   nationality: nationality.required(),
   documentType: documentType.required(),
   documentNumber: documentNumber.required(),
@@ -40,16 +43,15 @@ const createEmployeeSchema = Joi.object({
 });
 
 const updateEmployeeSchema = Joi.object({
-  firstName: firstName.required(),
-  lastName: lastName.required(),
+  firstName: firstName,
+  lastName: lastName,
   nationality: nationality,
   documentType: documentType,
   documentNumber: documentNumber,
   gender: gender,
   dateOfBirth: dateOfBirth,
   telephone: telephone,
-  address: address,
-  active: active
+  address: address
 });
 
 

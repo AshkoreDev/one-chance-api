@@ -20,6 +20,11 @@ const EmployeeSchema = {
     field: 'last_name',
     type: DataTypes.STRING(100)
   },
+  image: {
+    allowNull: true, //must be false
+    defaultValue: './../../assets/employeeImageDefault.png',
+    type: DataTypes.STRING(250)
+  },
   nationality: {
     allowNull: false,
     type: DataTypes.STRING(3)

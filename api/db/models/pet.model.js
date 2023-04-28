@@ -23,7 +23,7 @@ const PetSchema = {
   },
   image: {
     allowNull: true, //must be false
-    defaultValue: './../../assets/imageDefault.png',
+    defaultValue: './../../assets/petImageDefault.png',
     type: DataTypes.STRING(250)
   },
   age: {
