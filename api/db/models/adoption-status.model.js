@@ -39,7 +39,7 @@ const AdoptionStatusSchema = {
 class AdoptionStatus extends Model {
 
   static associate(models) {
-
+    this.hasMany(models.Pet, { as: 'adoptionStatusPet', foreignKey: 'petId' });
   }
 
   static config(sequelize) {

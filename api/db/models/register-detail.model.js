@@ -57,8 +57,10 @@ const RegisterDetailSchema = {
 class RegisterDetail extends Model {
 
   static associate(models) {
-
+    this.belongsTo(models.Pet, { as: 'registerDetailPet', foreignKey: 'petId' });
+    this.belongsTo(models.User, { as: 'registerDetailUser', foreignKey: 'userId' });
   }
+
 
   static config(sequelize) {
 

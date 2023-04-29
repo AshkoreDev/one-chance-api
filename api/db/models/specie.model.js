@@ -40,7 +40,7 @@ class Specie extends Model {
 
   static associate(models) {
     this.hasMany(models.Breed, { as: 'specieBreed', foreignKey: 'specieId' });
-    // this.hasMany(models.Pet, { as: 'speciePet', foreignKey: 'specieId' });
+    this.hasMany(models.Pet, { as: 'speciePet', foreignKey: 'petId' });
   }
 
   static config(sequelize) {

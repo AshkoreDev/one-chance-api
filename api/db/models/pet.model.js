@@ -1,7 +1,7 @@
 const { Sequelize, Model, DataTypes } = require('sequelize');
 const { SPECIE_TABLE } = require('./specie.model.js');
 const { BREED_TABLE } = require('./breed.model.js');
-const { ADOPTION_STATUS_TABLE } = require('./status.model.js');
+const { ADOPTION_STATUS_TABLE } = require('./adoption-status.model.js');
 
 const PET_TABLE = 'pets';
 
@@ -108,7 +108,10 @@ const PetSchema = {
 class Pet extends Model {
 
   static associate(models) {
-
+    this.belongsTo(models.Specie, { as: 'petSpecie', foreignKey: 'specieId' });
+    this.belongsTo(models.Breed, { as: 'petBreed', foreignKey: 'breedId' });
+    this.belongsTo(models.adoptionStatus, { as: 'petAdoptionStatus', foreignKey: 'adoptionStatusId' });
+    this.hasOne(models.RegisterDetail, { as: 'petRegisterDetail', foreignKey: 'petId' });
   }
 
   static config(sequelize) {

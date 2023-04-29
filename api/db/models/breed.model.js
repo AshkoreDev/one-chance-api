@@ -52,6 +52,7 @@ class Breed extends Model {
 
   static associate(models) {
     this.belongsTo(models.Specie, { as: 'breedSpecie', foreignKey: 'specieId' });
+    this.hasMany(models.Pet, { as: 'breedPet', foreignKey: 'petId' });
   }
 
   static config(sequelize) {
