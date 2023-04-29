@@ -80,7 +80,7 @@ class User extends Model {
   static associate(models) {
     this.belongsTo(models.Role, { as: 'userRole', foreignKey: 'roleId' });
     this.belongsTo(models.Employee, { as: 'userEmployee', foreignKey: 'employeeId' });
-    this.hasOne(models.RegisterDetail, { as: 'userRegisterDetail', foreignKey: 'userId' });
+    this.hasMany(models.RegisterDetail, { as: 'userRegisterDetail', foreignKey: 'userId' });
   }
 
   static config(sequelize) {

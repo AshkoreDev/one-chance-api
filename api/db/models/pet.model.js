@@ -110,7 +110,7 @@ class Pet extends Model {
   static associate(models) {
     this.belongsTo(models.Specie, { as: 'petSpecie', foreignKey: 'specieId' });
     this.belongsTo(models.Breed, { as: 'petBreed', foreignKey: 'breedId' });
-    this.belongsTo(models.adoptionStatus, { as: 'petAdoptionStatus', foreignKey: 'adoptionStatusId' });
+    this.belongsTo(models.AdoptionStatus, { as: 'petAdoptionStatus', foreignKey: 'adoptionStatusId' });
     this.hasOne(models.RegisterDetail, { as: 'petRegisterDetail', foreignKey: 'petId' });
   }
 
