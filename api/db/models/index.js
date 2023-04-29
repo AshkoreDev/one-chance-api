@@ -5,6 +5,7 @@ const { Breed, breedSchema } = require('./breed.model.js');
 const { Employee, EmployeeSchema } = require('./employee.model.js');
 const { User, UserSchema } = require('./user.model.js');
 const { Pet, PetSchema } = require('./pet.model.js');
+const { RegisterDetail, RegisterDetailSchema } = require('./register-detail.model.js');
 
 
 function setupModels(sequelize) {
@@ -15,6 +16,7 @@ function setupModels(sequelize) {
   Employee.init(EmployeeSchema, Employee.config(sequelize));
   User.init(UserSchema, User.config(sequelize));
   Pet.init(PetSchema, Pet.config(sequelize));
+  RegisterDetail.init(RegisterDetailSchema, RegisterDetail.config(sequelize));
 
 
   Role.associate(sequelize.models);
@@ -24,6 +26,7 @@ function setupModels(sequelize) {
   Employee.associate(sequelize.models);
   User.associate(sequelize.models);
   Pet.associate(sequelize.models);
+  RegisterDetail.associate(sequelize.models);
 }
 
 module.exports = setupModels;
