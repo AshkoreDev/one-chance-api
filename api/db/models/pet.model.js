@@ -34,7 +34,7 @@ const PetSchema = {
   },
   sex: {
     allowNull: false,
-    type: DataTypes.ENUM('M', 'F')
+    type: DataTypes.ENUM('F', 'M')
   },
   specieId: {
     allowNull: false,
@@ -75,8 +75,8 @@ const PetSchema = {
   },
   adoptionStatusId: {
     allowNull: false,
-    field: 'status_id',
-    defaultValue: 1,
+    field: 'adoption_status_id',
+    defaultValue: 2,
     type: DataTypes.INTEGER(10),
     references: {
       model: ADOPTION_STATUS_TABLE,
