@@ -93,7 +93,7 @@ userRouter.delete('/:userId',
 
     try {
 
-      const user = await service.delete(userId);
+      await service.delete(userId);
 
       res.json({ message: 'USER DELETED', userId });
 

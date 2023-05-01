@@ -93,9 +93,9 @@ employeeRouter.delete('/:employeeId',
 
     try {
 
-      const employee = await service.delete(employeeId);
+      await service.delete(employeeId);
 
-      res.json({ message: 'EMPLOYEE DELETED', employee });
+      res.json({ message: 'EMPLOYEE DELETED', employeeId });
 
     } catch (error) {
 
