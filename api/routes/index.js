@@ -6,8 +6,8 @@ const breedRouter = require('./breed.router.js');
 const adoptionStatusRouter = require('./adoption-status.router.js');
 const employeeRouter = require('./employee.router.js');
 const userRouter = require('./user.router.js');
-// const petRouter = require('./pet.router.js');
-// const adoptionDetailRouter = require('./adoption-detail.router.js');
+const petRouter = require('./pet.router.js');
+const registerDetailRouter = require('./register-detail.router.js');
 
 
 function routerApi(app) {
@@ -21,8 +21,8 @@ function routerApi(app) {
   router.use('/adoption-status', adoptionStatusRouter);
   router.use('/employees', employeeRouter);
   router.use('/users', userRouter);
-  // router.use('/pets', petRouter);
-  // router.use('/adoption-details', adoptionDetailRouter);
+  router.use('/pets', petRouter);
+  router.use('/register-details', registerDetailRouter);
 };
 
 
