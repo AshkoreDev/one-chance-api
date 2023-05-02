@@ -1,10 +1,10 @@
 const { Sequelize, Model, DataTypes } = require('sequelize');
 
-const EMPLOYEE_TABLE = 'employees';
+const ADOPTER_TABLE = 'adopters';
 
-const EmployeeSchema = {
+const AdopterSchema = {
 
-  employeeId: {
+  adopterId: {
     allowNull: false,
     autoIncrement: true,
     primaryKey: true,
@@ -58,6 +58,10 @@ const EmployeeSchema = {
     allowNull: false,
     type: DataTypes.STRING(100)
   },
+  status: {
+    allowNull: false,
+    type: DataTypes.ENUM('A', 'R', 'O')
+  },
   active: {
     allowNull: false,
     defaultValue: 'A',
@@ -78,18 +82,18 @@ const EmployeeSchema = {
 };
 
 
-class Employee extends Model {
+class Adopter extends Model {
 
   static associate(models) {
-    this.hasOne(models.User, { as: 'employeeUser', foreignKey: 'userId' });
+    // this.hasOne(models.User, { as: 'employeeUser', foreignKey: 'userId' });
   }
 
   static config(sequelize) {
 
     return {
       sequelize,
-      tableName: EMPLOYEE_TABLE,
-      modelName: 'Employee',
+      tableName: ADOPTER_TABLE,
+      modelName: 'Adopter',
       timestamps: true,
       updatedAt: 'updated_at',
       defaultScope: {
@@ -100,4 +104,4 @@ class Employee extends Model {
 };
 
 
-module.exports = { EMPLOYEE_TABLE, EmployeeSchema, Employee };
+module.exports = { ADOPTER_TABLE, AdopterSchema, Adopter };
