@@ -22,7 +22,7 @@ const currentMedicine = Joi.string().min(1).max(250);
 
 const medicalHistory = Joi.string().min(1).max(250);
 
-const statusId = Joi.number().integer();
+const adoptionStatusId = Joi.number().integer();
 
 const active = Joi.string().min(1).max(1);
 
@@ -42,7 +42,7 @@ const createPetSchema = Joi.object({
   currentHealth: currentHealth,
   currentMedicine: currentMedicine,
   medicalHistory: medicalHistory,
-  statusId: statusId
+  adoptionStatusId: adoptionStatusId
 });
 
 const updatePetSchema = Joi.object({
@@ -56,7 +56,7 @@ const updatePetSchema = Joi.object({
   currentHealth: currentHealth,
   currentMedicine: currentMedicine,
   medicalHistory: medicalHistory,
-  statusId: statusId,
+  adoptionStatusId: adoptionStatusId,
   active: active
 });
 

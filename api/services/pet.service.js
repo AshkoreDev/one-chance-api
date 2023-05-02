@@ -16,7 +16,7 @@ class PetService {
 
   async findOne(petId) {
 
-    const pet = await model.findByPk(petId);
+    const pet = await model.findByPk(petId, { include: ['petSpecie', 'petBreed', 'petAdoptionStatus'] });
 
     if (!pet) {
 

@@ -16,7 +16,12 @@ class RegisterDetailService {
 
   async findOne(registerDetailId) {
 
-    const register = await model.findByPk(registerDetailId);
+    const register = await model.findByPk(registerDetailId, {
+      include: [
+        { association: 'registerDetailPet', include: ['petSpecie', 'petBreed', 'petAdoptionStatus'] },
+        { association: 'registerDetailUser', include: ['userRole'] }
+      ]
+    });
 
     if (!register) {
 

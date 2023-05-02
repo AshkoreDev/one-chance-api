@@ -17,7 +17,7 @@ class UserService {
 
   async findOne(userId) {
 
-    const user = await model.findByPk(userId, { include: ['userRole'] });
+    const user = await model.findByPk(userId, { include: ['userRole', 'userEmployee'] });
 
     if (!user) {
 
@@ -31,8 +31,8 @@ class UserService {
 
   async create(body) {
 
-    const hash = await bcrypt.hash(data.password, 10);
-    const newUser = await model.create({ ...data, password: hash });
+    const hash = await bcrypt.hash(body.password, 10);
+    const newUser = await model.create({ ...body, password: hash });
 
     return newUser;
   }
@@ -40,7 +40,9 @@ class UserService {
   async update(userId, changes) {
 
     const user = await this.findOne(userId);
-    const updatedUser = await user.update(changes);
+
+    const hash = await bcrypt.hash(changes.password, 10);
+    const updatedUser = await user.update({ ...changes, password: hash });
 
     return updatedUser;
   }

@@ -1,6 +1,6 @@
 const Joi = require('joi');
 
-const registerId = Joi.number().integer();
+const registerDetailId = Joi.number().integer();
 
 const petId = Joi.number().integer();
 
@@ -9,21 +9,21 @@ const userId = Joi.number().integer();
 const description = Joi.string().min(1).max(200);
 
 
-const idRoleSchema = Joi.object({
-  registerId: registerId.required()
+const idRegisterDetailSchema = Joi.object({
+  registerDetailId: registerDetailId.required()
 });
 
-const createRoleSchema = Joi.object({
+const createRegisterDetailSchema = Joi.object({
   petId: petId.required(),
   userId: userId.required(),
   description: description
 });
 
-const updateRoleSchema = Joi.object({
+const updateRegisterDetailSchema = Joi.object({
   petId: petId,
   userId: userId,
   description: description
 });
 
 
-module.exports = { idRoleSchema, createRoleSchema, updateRoleSchema };
+module.exports = { idRegisterDetailSchema, createRegisterDetailSchema, updateRegisterDetailSchema };
