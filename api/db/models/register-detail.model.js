@@ -35,6 +35,11 @@ const RegisterDetailSchema = {
     onUpdate: 'CASCADE',
     onDelete: 'CASCADE'
   },
+  rescueDate: {
+    allowNull: false,
+    field: 'rescue_date',
+    type: DataTypes.DATEONLY
+  },
   description: {
     allowNull: true,
     type: DataTypes.STRING(200)

@@ -6,6 +6,8 @@ const petId = Joi.number().integer();
 
 const userId = Joi.number().integer();
 
+const rescueDate = Joi.date();
+
 const description = Joi.string().min(1).max(200);
 
 
@@ -16,12 +18,14 @@ const idRegisterDetailSchema = Joi.object({
 const createRegisterDetailSchema = Joi.object({
   petId: petId.required(),
   userId: userId.required(),
+  rescueDate: rescueDate.required(),
   description: description
 });
 
 const updateRegisterDetailSchema = Joi.object({
   petId: petId,
   userId: userId,
+  rescueDate: rescueDate,
   description: description
 });
 
