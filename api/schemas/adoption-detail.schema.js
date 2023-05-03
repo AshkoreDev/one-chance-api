@@ -13,11 +13,11 @@ const adoptionDate = Joi.date();
 const observations = Joi.string().min(1).max(200);
 
 
-const idRegisterDetailSchema = Joi.object({
+const idAdoptionDetailSchema = Joi.object({
   adoptionId: adoptionId.required()
 });
 
-const createRegisterDetailSchema = Joi.object({
+const createAdoptionDetailSchema = Joi.object({
   petId: petId.required(),
   adopterId: adopterId.required(),
   userId: userId.required(),
@@ -25,7 +25,7 @@ const createRegisterDetailSchema = Joi.object({
   observations: observations
 });
 
-const updateRegisterDetailSchema = Joi.object({
+const updateAdoptionDetailSchema = Joi.object({
   petId: petId,
   adopterId: adopterId,
   userId: userId,
@@ -34,4 +34,4 @@ const updateRegisterDetailSchema = Joi.object({
 });
 
 
-module.exports = { idRegisterDetailSchema, createRegisterDetailSchema, updateRegisterDetailSchema };
+module.exports = { idAdoptionDetailSchema, createAdoptionDetailSchema, updateAdoptionDetailSchema };

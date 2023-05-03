@@ -38,8 +38,8 @@ const createEmployeeSchema = Joi.object({
   documentNumber: documentNumber.required(),
   gender: gender.required(),
   dateOfBirth: dateOfBirth.required(),
-  telephone: telephone,
-  address: address
+  telephone: telephone.required(),
+  address: address.required()
 });
 
 const updateEmployeeSchema = Joi.object({
