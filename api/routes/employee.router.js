@@ -7,7 +7,6 @@ const { idEmployeeSchema, createEmployeeSchema, updateEmployeeSchema } = require
 const employeeRouter = express.Router();
 const service = new EmployeeService();
 
-
 employeeRouter.get('/', async (req, res, next) => {
 
   try {
@@ -21,7 +20,6 @@ employeeRouter.get('/', async (req, res, next) => {
     next(error);
   }
 });
-
 
 employeeRouter.get('/:employeeId',
   validatorHandler(idEmployeeSchema, 'params'),
@@ -42,7 +40,6 @@ employeeRouter.get('/:employeeId',
   }
 );
 
-
 employeeRouter.post('/',
   validatorHandler(createEmployeeSchema, 'body'),
   async (req, res, next) => {
@@ -61,7 +58,6 @@ employeeRouter.post('/',
     }
   }
 );
-
 
 employeeRouter.patch('/:employeeId',
   validatorHandler(idEmployeeSchema, 'params'),
@@ -83,7 +79,6 @@ employeeRouter.patch('/:employeeId',
     }
   }
 );
-
 
 employeeRouter.delete('/:employeeId',
   validatorHandler(idEmployeeSchema, 'params'),

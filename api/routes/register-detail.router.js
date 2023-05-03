@@ -7,7 +7,6 @@ const { idRegisterDetailSchema, createRegisterDetailSchema, updateRegisterDetail
 const registerDetailRouter = express.Router();
 const service = new RegisterDetailService();
 
-
 registerDetailRouter.get('/', async (req, res, next) => {
 
   try {
@@ -21,7 +20,6 @@ registerDetailRouter.get('/', async (req, res, next) => {
     next(error);
   }
 });
-
 
 registerDetailRouter.get('/:registerDetailId',
   validatorHandler(idRegisterDetailSchema, 'params'),
@@ -42,7 +40,6 @@ registerDetailRouter.get('/:registerDetailId',
   }
 );
 
-
 registerDetailRouter.post('/',
   validatorHandler(createRegisterDetailSchema, 'body'),
   async (req, res, next) => {
@@ -61,7 +58,6 @@ registerDetailRouter.post('/',
     }
   }
 );
-
 
 registerDetailRouter.patch('/:registerDetailId',
   validatorHandler(idRegisterDetailSchema, 'params'),
@@ -83,7 +79,6 @@ registerDetailRouter.patch('/:registerDetailId',
     }
   }
 );
-
 
 registerDetailRouter.delete('/:registerDetailId',
   validatorHandler(idRegisterDetailSchema, 'params'),

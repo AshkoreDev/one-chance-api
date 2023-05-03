@@ -7,7 +7,6 @@ const { idRoleSchema, createRoleSchema, updateRoleSchema } = require('./../schem
 const roleRouter = express.Router();
 const service = new RoleService();
 
-
 roleRouter.get('/', async (req, res, next) => {
 
   try {
@@ -21,7 +20,6 @@ roleRouter.get('/', async (req, res, next) => {
     next(error);
   }
 });
-
 
 roleRouter.get('/:roleId',
   validatorHandler(idRoleSchema, 'params'),
@@ -42,7 +40,6 @@ roleRouter.get('/:roleId',
   }
 );
 
-
 roleRouter.post('/',
   validatorHandler(createRoleSchema, 'body'),
   async (req, res, next) => {
@@ -61,7 +58,6 @@ roleRouter.post('/',
     }
   }
 );
-
 
 roleRouter.patch('/:roleId',
   validatorHandler(idRoleSchema, 'params'),
@@ -83,7 +79,6 @@ roleRouter.patch('/:roleId',
     }
   }
 );
-
 
 roleRouter.delete('/:roleId',
   validatorHandler(idRoleSchema, 'params'),

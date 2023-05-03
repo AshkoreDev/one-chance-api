@@ -7,7 +7,6 @@ const { idUserSchema, createUserSchema, updateUserSchema } = require('./../schem
 const userRouter = express.Router();
 const service = new UserService();
 
-
 userRouter.get('/', async (req, res, next) => {
 
   try {
@@ -21,7 +20,6 @@ userRouter.get('/', async (req, res, next) => {
     next(error);
   }
 });
-
 
 userRouter.get('/:userId',
   validatorHandler(idUserSchema, 'params'),
@@ -42,7 +40,6 @@ userRouter.get('/:userId',
   }
 );
 
-
 userRouter.post('/',
   validatorHandler(createUserSchema, 'body'),
   async (req, res, next) => {
@@ -61,7 +58,6 @@ userRouter.post('/',
     }
   }
 );
-
 
 userRouter.patch('/:userId',
   validatorHandler(idUserSchema, 'params'),
@@ -83,7 +79,6 @@ userRouter.patch('/:userId',
     }
   }
 );
-
 
 userRouter.delete('/:userId',
   validatorHandler(idUserSchema, 'params'),

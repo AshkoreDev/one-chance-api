@@ -7,7 +7,6 @@ const { idAdoptionStatusSchema, createAdoptionStatusSchema, updateAdoptionStatus
 const adoptionStatusRouter = express.Router();
 const service = new AdoptionStatusService();
 
-
 adoptionStatusRouter.get('/', async (req, res, next) => {
 
   try {
@@ -21,7 +20,6 @@ adoptionStatusRouter.get('/', async (req, res, next) => {
     next(error);
   }
 });
-
 
 adoptionStatusRouter.get('/:adoptionStatusId',
   validatorHandler(idAdoptionStatusSchema, 'params'),
@@ -42,7 +40,6 @@ adoptionStatusRouter.get('/:adoptionStatusId',
   }
 );
 
-
 adoptionStatusRouter.post('/',
   validatorHandler(createAdoptionStatusSchema, 'body'),
   async (req, res, next) => {
@@ -61,7 +58,6 @@ adoptionStatusRouter.post('/',
     }
   }
 );
-
 
 adoptionStatusRouter.patch('/:adoptionStatusId',
   validatorHandler(idAdoptionStatusSchema, 'params'),
@@ -83,7 +79,6 @@ adoptionStatusRouter.patch('/:adoptionStatusId',
     }
   }
 );
-
 
 adoptionStatusRouter.delete('/:adoptionStatusId',
   validatorHandler(idAdoptionStatusSchema, 'params'),

@@ -7,7 +7,6 @@ const { idSpecieSchema, createSpecieSchema, updateSpecieSchema } = require('./..
 const specieRouter = express.Router();
 const service = new SpecieServie();
 
-
 specieRouter.get('/', async (req, res, next) => {
 
   try {
@@ -21,7 +20,6 @@ specieRouter.get('/', async (req, res, next) => {
     next(error);
   }
 });
-
 
 specieRouter.get('/:specieId',
   validatorHandler(idSpecieSchema, 'params'),
@@ -42,7 +40,6 @@ specieRouter.get('/:specieId',
   }
 );
 
-
 specieRouter.post('/',
   validatorHandler(createSpecieSchema, 'body'),
   async (req, res, next) => {
@@ -61,7 +58,6 @@ specieRouter.post('/',
     }
   }
 );
-
 
 specieRouter.patch('/:specieId',
   validatorHandler(idSpecieSchema, 'params'),
@@ -83,7 +79,6 @@ specieRouter.patch('/:specieId',
     }
   }
 );
-
 
 specieRouter.delete('/:specieId',
   validatorHandler(idSpecieSchema, 'params'),

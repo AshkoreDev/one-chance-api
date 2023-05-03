@@ -7,7 +7,6 @@ const { idPetSchema, createPetSchema, updatePetSchema } = require('./../schemas/
 const petRouter = express.Router();
 const service = new PetService();
 
-
 petRouter.get('/', async (req, res, next) => {
 
   try {
@@ -21,7 +20,6 @@ petRouter.get('/', async (req, res, next) => {
     next(error);
   }
 });
-
 
 petRouter.get('/:petId',
   validatorHandler(idPetSchema, 'params'),
@@ -42,7 +40,6 @@ petRouter.get('/:petId',
   }
 );
 
-
 petRouter.post('/',
   validatorHandler(createPetSchema, 'body'),
   async (req, res, next) => {
@@ -61,7 +58,6 @@ petRouter.post('/',
     }
   }
 );
-
 
 petRouter.patch('/:petId',
   validatorHandler(idPetSchema, 'params'),
@@ -83,7 +79,6 @@ petRouter.patch('/:petId',
     }
   }
 );
-
 
 petRouter.delete('/:petId',
   validatorHandler(idPetSchema, 'params'),

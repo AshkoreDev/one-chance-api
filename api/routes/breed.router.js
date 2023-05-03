@@ -7,7 +7,6 @@ const { idBreedSchema, createBreedSchema, updateBreedSchema } = require('./../sc
 const breedRouter = express.Router();
 const service = new BreedService();
 
-
 breedRouter.get('/', async (req, res, next) => {
 
   try {
@@ -21,7 +20,6 @@ breedRouter.get('/', async (req, res, next) => {
     next(error);
   }
 });
-
 
 breedRouter.get('/:breedId',
   validatorHandler(idBreedSchema, 'params'),
@@ -42,7 +40,6 @@ breedRouter.get('/:breedId',
   }
 );
 
-
 breedRouter.post('/',
   validatorHandler(createBreedSchema, 'body'),
   async (req, res, next) => {
@@ -61,7 +58,6 @@ breedRouter.post('/',
     }
   }
 );
-
 
 breedRouter.patch('/:breedId',
   validatorHandler(idBreedSchema, 'params'),
@@ -83,7 +79,6 @@ breedRouter.patch('/:breedId',
     }
   }
 );
-
 
 breedRouter.delete('/:breedId',
   validatorHandler(idBreedSchema, 'params'),

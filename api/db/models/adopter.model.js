@@ -56,7 +56,7 @@ const AdopterSchema = {
   },
   address: {
     allowNull: false,
-    type: DataTypes.STRING(100)
+    type: DataTypes.STRING(150)
   },
   status: {
     allowNull: false,
