@@ -9,6 +9,7 @@ const userRouter = require('./user.router.js');
 const petRouter = require('./pet.router.js');
 const adopterRouter = require('./adopter.router.js');
 const registerDetailRouter = require('./register-detail.router.js');
+// const adoptionDetailRouter = require('./adoption-detail.router.js');
 
 
 function routerApi(app) {
@@ -25,6 +26,7 @@ function routerApi(app) {
   router.use('/pets', petRouter);
   router.use('/adopters', adopterRouter);
   router.use('/register-details', registerDetailRouter);
+  // router.use('/adoption-details', adoptionDetailRouter);
 };
 
 

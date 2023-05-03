@@ -1,31 +1,35 @@
 const Joi = require('joi');
 
-const registerDetailId = Joi.number().integer();
+const adoptionId = Joi.number().integer();
 
 const petId = Joi.number().integer();
 
+const adopterId = Joi.number().integer();
+
 const userId = Joi.number().integer();
 
-const rescueDate = Joi.date();
+const adoptionDate = Joi.date();
 
 const observations = Joi.string().min(1).max(200);
 
 
 const idRegisterDetailSchema = Joi.object({
-  registerDetailId: registerDetailId.required()
+  adoptionId: adoptionId.required()
 });
 
 const createRegisterDetailSchema = Joi.object({
   petId: petId.required(),
+  adopterId: adopterId.required(),
   userId: userId.required(),
-  rescueDate: rescueDate.required(),
+  adoptionDate: adoptionDate.required(),
   observations: observations
 });
 
 const updateRegisterDetailSchema = Joi.object({
   petId: petId,
+  adopterId: adopterId,
   userId: userId,
-  rescueDate: rescueDate,
+  adoptionDate: adoptionDate,
   observations: observations
 });
 
