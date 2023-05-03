@@ -7,6 +7,7 @@ const { User, UserSchema } = require('./user.model.js');
 const { Pet, PetSchema } = require('./pet.model.js');
 const { Adopter, AdopterSchema } = require('./adopter.model.js');
 const { RegisterDetail, RegisterDetailSchema } = require('./register-detail.model.js');
+const { AdoptionDetail, AdoptionDetailSchema } = require('./adoption-detail.model.js');
 
 
 function setupModels(sequelize) {
@@ -19,6 +20,7 @@ function setupModels(sequelize) {
   Pet.init(PetSchema, Pet.config(sequelize));
   Adopter.init(AdopterSchema, Adopter.config(sequelize));
   RegisterDetail.init(RegisterDetailSchema, RegisterDetail.config(sequelize));
+  AdoptionDetail.init(AdoptionDetailSchema, AdoptionDetail.config(sequelize));
 
 
   Role.associate(sequelize.models);
@@ -30,6 +32,7 @@ function setupModels(sequelize) {
   Pet.associate(sequelize.models);
   Adopter.associate(sequelize.models);
   RegisterDetail.associate(sequelize.models);
+  AdoptionDetail.associate(sequelize.models);
 }
 
 module.exports = setupModels;

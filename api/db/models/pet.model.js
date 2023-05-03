@@ -108,10 +108,12 @@ const PetSchema = {
 class Pet extends Model {
 
   static associate(models) {
+
     this.belongsTo(models.Specie, { as: 'petSpecie', foreignKey: 'specieId' });
     this.belongsTo(models.Breed, { as: 'petBreed', foreignKey: 'breedId' });
     this.belongsTo(models.AdoptionStatus, { as: 'petAdoptionStatus', foreignKey: 'adoptionStatusId' });
     this.hasOne(models.RegisterDetail, { as: 'petRegisterDetail', foreignKey: 'petId' });
+    this.hasOne(models.AdoptionDetail, { as: 'petAdoptionDetail', foreignKey: 'petId' })
   }
 
   static config(sequelize) {

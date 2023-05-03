@@ -78,9 +78,11 @@ const UserSchema = {
 class User extends Model {
 
   static associate(models) {
+
     this.belongsTo(models.Role, { as: 'userRole', foreignKey: 'roleId' });
     this.belongsTo(models.Employee, { as: 'userEmployee', foreignKey: 'employeeId' });
     this.hasMany(models.RegisterDetail, { as: 'userRegisterDetail', foreignKey: 'userId' });
+    this.hasMany(models.AdoptionDetail, { as: 'userAdoptionDetail', foreignKey: 'userId' });
   }
 
   static config(sequelize) {

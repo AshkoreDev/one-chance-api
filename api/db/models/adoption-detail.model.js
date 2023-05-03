@@ -1,12 +1,13 @@
 const { Sequelize, Model, DataTypes } = require('sequelize');
 const { PET_TABLE } = require('./pet.model.js');
 const { USER_TABLE } = require('./user.model.js');
+const { ADOPTER_TABLE } = require('./adopter.model.js');
 
-const REGISTER_DETAIL_TABLE = 'register_details';
+const ADOPTION_DETAIL_TABLE = 'adoption_details';
 
-const RegisterDetailSchema = {
+const AdoptionDetailSchema = {
 
-  registerId: {
+  adoptionId: {
     allowNull: false,
     autoIncrement: true,
     primaryKey: true,
@@ -24,6 +25,17 @@ const RegisterDetailSchema = {
     onUpdate: 'CASCADE',
     onDelete: 'CASCADE'
   },
+  adopterId: {
+    allowNull: false,
+    field: 'adopter_id',
+    type: DataTypes.INTEGER(10),
+    references: {
+      model: ADOPTER_TABLE,
+      key: 'id'
+    },
+    onUpdate: 'CASCADE',
+    onDelete: 'CASCADE'
+  },
   userId: {
     allowNull: false,
     field: 'user_id',
@@ -35,9 +47,9 @@ const RegisterDetailSchema = {
     onUpdate: 'CASCADE',
     onDelete: 'CASCADE'
   },
-  rescueDate: {
+  adoptionDate: {
     allowNull: false,
-    field: 'rescue_date',
+    field: 'adoption_date',
     type: DataTypes.DATEONLY
   },
   observations: {
@@ -59,12 +71,13 @@ const RegisterDetailSchema = {
 };
 
 
-class RegisterDetail extends Model {
+class AdoptionDetail extends Model {
 
   static associate(models) {
 
-    this.belongsTo(models.Pet, { as: 'registerDetailPet', foreignKey: 'petId' });
-    this.belongsTo(models.User, { as: 'registerDetailUser', foreignKey: 'userId' });
+    this.belongsTo(models.Pet, { as: 'adoptionDetailPet', foreignKey: 'petId' });
+    this.belongsTo(models.User, { as: 'adoptionDetailUser', foreignKey: 'userId' });
+    this.belongsTo(models.Adopter, { as: 'adoptionDetailAdopter', foreignKey: 'adopterId' });
   }
 
 
@@ -72,8 +85,8 @@ class RegisterDetail extends Model {
 
     return {
       sequelize,
-      tableName: REGISTER_DETAIL_TABLE,
-      modelName: 'RegisterDetail',
+      tableName: ADOPTION_DETAIL_TABLE,
+      modelName: 'AdoptionDetail',
       timestamps: true,
       updatedAt: 'updated_at',
       defaultScope: {
@@ -84,4 +97,4 @@ class RegisterDetail extends Model {
 };
 
 
-module.exports = { REGISTER_DETAIL_TABLE, RegisterDetailSchema, RegisterDetail };
+module.exports = { ADOPTION_DETAIL_TABLE, AdoptionDetailSchema, AdoptionDetail };
