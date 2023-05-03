@@ -7,6 +7,7 @@ const { breedSchema, BREED_TABLE } = require('./../models/breed.model.js');
 const { EmployeeSchema, EMPLOYEE_TABLE } = require('./../models/employee.model.js');
 const { UserSchema, USER_TABLE } = require('./../models/user.model.js');
 const { PetSchema, PET_TABLE } = require('./../models/pet.model.js');
+const { AdopterSchema, ADOPTER_TABLE } = require('./../models/adopter.model.js');
 const { RegisterDetailSchema, REGISTER_DETAIL_TABLE } = require('./../models/register-detail.model.js');
 
 
@@ -22,6 +23,7 @@ module.exports = {
     await queryInterface.createTable(EMPLOYEE_TABLE, EmployeeSchema);
     await queryInterface.createTable(USER_TABLE, UserSchema);
     await queryInterface.createTable(PET_TABLE, PetSchema);
+    await queryInterface.createTable(ADOPTER_TABLE, AdopterSchema);
     await queryInterface.createTable(REGISTER_DETAIL_TABLE, RegisterDetailSchema);
   },
 
@@ -34,6 +36,7 @@ module.exports = {
     await queryInterface.dropTable(EMPLOYEE_TABLE);
     await queryInterface.dropTable(USER_TABLE);
     await queryInterface.dropTable(PET_TABLE);
+    await queryInterface.dropTable(ADOPTER_TABLE);
     await queryInterface.dropTable(REGISTER_DETAIL_TABLE);
   }
 };

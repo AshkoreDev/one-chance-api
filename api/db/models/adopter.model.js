@@ -85,7 +85,7 @@ const AdopterSchema = {
 class Adopter extends Model {
 
   static associate(models) {
-    // this.hasOne(models.User, { as: 'employeeUser', foreignKey: 'userId' });
+    // this.hasMany(models.AdoptionDetail, { as: 'userAdoptionDetail', foreignKey: 'userId' });
   }
 
   static config(sequelize) {
