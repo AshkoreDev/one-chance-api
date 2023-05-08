@@ -50,7 +50,7 @@ petRouter.post('/',
 
       const pet = await service.create(body);
 
-      res.status(201).json({ message: 'PET CREATED', data: pet });
+      res.status(201).json({ success: 'success', message: 'MASCOTA CREADA' });
 
     } catch (error) {
 
@@ -71,7 +71,7 @@ petRouter.patch('/:petId',
 
       const pet = await service.update(petId, body);
 
-      res.json({ message: 'PET UPDATED', data: pet });
+      res.json({ success: 'success', message: 'MASCOTA MODIFICADA' });
 
     } catch (error) {
 
@@ -90,7 +90,7 @@ petRouter.delete('/:petId',
 
       await service.delete(petId);
 
-      res.json({ message: 'PET DELETED', petId });
+      res.json({ success: 'success', message: 'MASCOTA ELIMINADA' });
 
     } catch (error) {
 

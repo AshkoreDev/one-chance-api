@@ -50,7 +50,7 @@ adoptionStatusRouter.post('/',
 
       const status = await service.create(body);
 
-      res.status(201).json({ message: 'ADOPTION STATUS CREATED', data: status });
+      res.status(201).json({ success: 'success', message: 'ESTATUS DE ADOPCIÓN CREADO' });
 
     } catch (error) {
 
@@ -71,7 +71,7 @@ adoptionStatusRouter.patch('/:adoptionStatusId',
 
       const status = await service.update(adoptionStatusId, body);
 
-      res.json({ message: 'ADOPTION STATUS UPDATED', data: status });
+      res.json({ success: 'success', message: 'ESTATUS DE ADOPCIÓN MODIFICADO' });
 
     } catch (error) {
 
@@ -90,7 +90,7 @@ adoptionStatusRouter.delete('/:adoptionStatusId',
 
       await service.delete(adoptionStatusId);
 
-      res.json({ message: 'ADOPTION STATUS DELETED', adoptionStatusId });
+      res.json({ success: 'success', message: 'ESTATUS DE ADOPCIÓN ELIMINADO' });
 
     } catch (error) {
 

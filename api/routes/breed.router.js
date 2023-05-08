@@ -50,7 +50,7 @@ breedRouter.post('/',
 
       const breed = await service.create(body);
 
-      res.status(201).json({ message: 'BREED CREATED', data: breed });
+      res.status(201).json({ success: 'success', message: 'RAZA CREADA' });
 
     } catch (error) {
 
@@ -71,7 +71,7 @@ breedRouter.patch('/:breedId',
 
       const breed = await service.update(breedId, body);
 
-      res.json({ message: 'BREED UPDATED', data: breed });
+      res.json({ success: 'success', message: 'RAZA MODIFICADA' });
 
     } catch (error) {
 
@@ -90,7 +90,7 @@ breedRouter.delete('/:breedId',
 
       await service.delete(breedId);
 
-      res.json({ message: 'BREED DELETED', breedId });
+      res.json({ success: 'success', message: 'RAZA ELIMINADA' });
 
     } catch (error) {
 

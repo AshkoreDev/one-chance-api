@@ -50,7 +50,7 @@ adopterRouter.post('/',
 
       const adopter = await service.create(body);
 
-      res.status(201).json({ message: 'ADOPTER CREATED', data: adopter });
+      res.status(201).json({ success: 'success', message: 'ADOPTANTE CREADO' });
 
     } catch (error) {
 
@@ -71,7 +71,7 @@ adopterRouter.patch('/:adopterId',
 
       const adopter = await service.update(adopterId, body);
 
-      res.json({ message: 'ADOPTER UPDATED', data: adopter });
+      res.json({ success: 'success', message: 'ADOPTANTE MODIFICADO' });
 
     } catch (error) {
 
@@ -90,7 +90,7 @@ adopterRouter.delete('/:adopterId',
 
       await service.delete(adopterId);
 
-      res.json({ message: 'ADOPTER DELETED', adopterId });
+      res.json({ success: 'success', message: 'ADOPTANTE ELIMINADO' });
 
     } catch (error) {
 

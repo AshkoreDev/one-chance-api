@@ -50,7 +50,7 @@ employeeRouter.post('/',
 
       const employee = await service.create(body);
 
-      res.status(201).json({ message: 'EMPLOYEE CREATED', data: employee });
+      res.status(201).json({ success: 'success', message: 'EMPLEADO CREADO' });
 
     } catch (error) {
 
@@ -71,7 +71,7 @@ employeeRouter.patch('/:employeeId',
 
       const employee = await service.update(employeeId, body);
 
-      res.json({ message: 'EMPLOYEE UPDATED', data: employee });
+      res.json({ success: 'success', message: 'EMPLEADO MODIFICADO' });
 
     } catch (error) {
 
@@ -90,7 +90,7 @@ employeeRouter.delete('/:employeeId',
 
       await service.delete(employeeId);
 
-      res.json({ message: 'EMPLOYEE DELETED', employeeId });
+      res.json({ success: 'success', message: 'EMPLEADO ELIMINADO' });
 
     } catch (error) {
 

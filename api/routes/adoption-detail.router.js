@@ -50,7 +50,7 @@ adoptionDetailRouter.post('/',
 
       const adoption = await service.create(body);
 
-      res.status(201).json({ message: 'ADOPTION DETAIL CREATED', data: adoption });
+      res.status(201).json({ success: 'success', message: 'DETALLE DE ADOPCIÓN CREADO' });
 
     } catch (error) {
 
@@ -71,7 +71,7 @@ adoptionDetailRouter.patch('/:adoptionId',
 
       const adoption = await service.update(adoptionId, body);
 
-      res.json({ message: 'ADOPTION DETAIL UPDATED', data: adoption });
+      res.json({ success: 'success', message: 'DETALLE DE ADOPCIÓN MODIFICADO' });
 
     } catch (error) {
 
@@ -90,7 +90,7 @@ adoptionDetailRouter.delete('/:adoptionId',
 
       await service.delete(adoptionId);
 
-      res.json({ message: 'ADOPTION DETAIL DELETED', adoptionId });
+      res.json({ success: 'success', message: 'DETALLE DE ADOPCIÓN ELIMINADO' });
 
     } catch (error) {
 

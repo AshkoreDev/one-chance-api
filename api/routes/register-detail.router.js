@@ -50,7 +50,7 @@ registerDetailRouter.post('/',
 
       const register = await service.create(body);
 
-      res.status(201).json({ message: 'REGISTER DETAIL CREATED', data: register });
+      res.status(201).json({ success: 'success', message: 'DETALLE DE REGISTRO CREADO' });
 
     } catch (error) {
 
@@ -71,7 +71,7 @@ registerDetailRouter.patch('/:registerId',
 
       const register = await service.update(registerId, body);
 
-      res.json({ message: 'REGISTER DETAIL UPDATED', data: register });
+      res.json({ success: 'success', message: 'DETALLE DE REGISTRO MODIFICADO' });
 
     } catch (error) {
 
@@ -90,7 +90,7 @@ registerDetailRouter.delete('/:registerId',
 
       await service.delete(registerId);
 
-      res.json({ message: 'REGISTER DETAIL DELETED', registerId });
+      res.json({ success: 'success', message: 'DETALLE DE REGISTRO ELIMINADO' });
 
     } catch (error) {
 

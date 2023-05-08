@@ -50,7 +50,7 @@ specieRouter.post('/',
 
       const specie = await service.create(body);
 
-      res.status(201).json({ message: 'SPECIE CREATED', data: specie });
+      res.status(201).json({ success: 'success', message: 'ESPECIE CREADA' });
 
     } catch (error) {
 
@@ -71,7 +71,7 @@ specieRouter.patch('/:specieId',
 
       const specie = await service.update(specieId, body);
 
-      res.json({ message: 'SPECIE UPDATED', data: specie });
+      res.json({ success: 'success', message: 'ESPECIE MODIFICADA' });
 
     } catch (error) {
 
@@ -90,7 +90,7 @@ specieRouter.delete('/:specieId',
 
       await service.delete(specieId);
 
-      res.json({ message: 'SPECIE DELETED', specieId });
+      res.json({ success: 'success', message: 'ESPECIE ELIMINADA' });
 
     } catch (error) {
 
