@@ -13,7 +13,7 @@ class PetService {
 
     if (Object.keys(pets).length === 0) {
 
-      throw boom.notFound(`PETS NOT FOUND.`);
+      throw boom.notFound(`MASCOTAS NO ENCONTRADAS.`);
 
     } else {
 
@@ -27,7 +27,7 @@ class PetService {
 
     if (!pet) {
 
-      throw boom.notFound('PET NOT FOUND.');
+      throw boom.notFound('MASCOTA NO ENCONTRADA.');
 
     } else {
 

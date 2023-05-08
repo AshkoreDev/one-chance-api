@@ -13,7 +13,7 @@ class RegisterDetailService {
 
     if (Object.keys(registers).length === 0) {
 
-      throw boom.notFound(`REGISTERS DETAILS NOT FOUND.`);
+      throw boom.notFound(`DETALLES DE REGISTRO NO ENCONTRADOS.`);
 
     } else {
 
@@ -32,7 +32,7 @@ class RegisterDetailService {
 
     if (!register) {
 
-      throw boom.notFound('REGISTER DETAIL NOT FOUND.');
+      throw boom.notFound('DETALLE DE REGISTRO NO ENCONTRADO.');
 
     } else {
 

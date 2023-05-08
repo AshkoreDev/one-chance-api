@@ -13,7 +13,7 @@ class BreedService {
 
     if (Object.keys(breeds).length === 0) {
 
-      throw boom.notFound(`BREEDS NOT FOUND.`);
+      throw boom.notFound(`RAZAS NO ENCONTRADAS.`);
 
     } else {
 
@@ -27,7 +27,7 @@ class BreedService {
 
     if (!breed) {
 
-      throw boom.notFound('BREED NOT FOUND.');
+      throw boom.notFound('RAZA NO ENCONTRADA.');
 
     } else {
 

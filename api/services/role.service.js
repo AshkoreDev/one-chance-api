@@ -13,7 +13,7 @@ class RoleService {
 
     if (Object.keys(roles).length === 0) {
 
-      throw boom.notFound(`ROLES NOT FOUND.`);
+      throw boom.notFound(`ROLES NO ENCONTRADOS.`);
 
     } else {
 
@@ -27,7 +27,7 @@ class RoleService {
 
     if (!role) {
 
-      throw boom.notFound('ROLE NOT FOUND.');
+      throw boom.notFound('ROL NO ENCONTRADO.');
 
     } else {
 

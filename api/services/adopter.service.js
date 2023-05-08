@@ -13,10 +13,10 @@ class AdopterService {
 
     if (Object.keys(adopters).length === 0) {
 
-      throw boom.notFound(`ADOPTERS NOT FOUND.`);
+      throw boom.notFound(`ADOPTANTES NO ENCONTRADOS.`);
 
     } else {
-
+      
       return adopters;
     }
   }
@@ -27,7 +27,7 @@ class AdopterService {
 
     if (!adopter) {
 
-      throw boom.notFound('ADOPTER NOT FOUND.');
+      throw boom.notFound('ADOPTANTE NO ENCONTRADO');
 
     } else {
 

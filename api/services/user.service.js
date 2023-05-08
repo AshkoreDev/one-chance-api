@@ -14,7 +14,7 @@ class UserService {
 
     if (Object.keys(users).length === 0) {
 
-      throw boom.notFound(`USERS NOT FOUND.`);
+      throw boom.notFound(`USUARIOS NO ENCONTRADOS.`);
 
     } else {
 
@@ -28,7 +28,7 @@ class UserService {
 
     if (!user) {
 
-      throw boom.notFound('USER NOT FOUND.');
+      throw boom.notFound('USUARIO NO ENCONTRADO.');
 
     } else {
 

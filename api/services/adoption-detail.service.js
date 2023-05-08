@@ -13,7 +13,7 @@ class AdoptionDetailService {
 
     if (Object.keys(adoptions).length === 0) {
 
-      throw boom.notFound(`ADOPTIONS DETAILS NOT FOUND.`);
+      throw boom.notFound(`DETALLES DE ADOPCIÓN NO ENCONTRADOS.`);
 
     } else {
 
@@ -27,7 +27,7 @@ class AdoptionDetailService {
 
     if (!adoption) {
 
-      throw boom.notFound('ADOPTION DETAIL NOT FOUND.');
+      throw boom.notFound('DETALLE DE ADOPCIÓN NO ENCONTRADO.');
 
     } else {
 

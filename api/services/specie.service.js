@@ -13,7 +13,7 @@ class SpecieService {
 
     if (Object.keys(species).length === 0) {
 
-      throw boom.notFound(`SPECIES NOT FOUND.`);
+      throw boom.notFound(`ESPECIES NO ENCONTRADAS.`);
 
     } else {
 
@@ -27,7 +27,7 @@ class SpecieService {
 
     if (!specie) {
 
-      throw boom.notFound('SPECIE NOT FOUND.');
+      throw boom.notFound('ESPECIE NO ENCONTRADA.');
 
     } else {
 

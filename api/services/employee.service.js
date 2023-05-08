@@ -13,7 +13,7 @@ class EmployeeService {
 
     if (Object.keys(employees).length === 0) {
 
-      throw boom.notFound(`EMPLOYEES NOT FOUND.`);
+      throw boom.notFound(`EMPLEADOS NO ENCONTRADOS.`);
 
     } else {
 
@@ -27,7 +27,7 @@ class EmployeeService {
 
     if (!employee) {
 
-      throw boom.notFound('EMPLOYEE NOT FOUND.');
+      throw boom.notFound('EMPLEADO NO ENCONTRADO.');
 
     } else {
 

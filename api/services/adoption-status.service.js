@@ -13,7 +13,7 @@ class AdoptionStatusService {
 
     if (Object.keys(status).length === 0) {
 
-      throw boom.notFound(`ADOPTIONS STATUS NOT FOUND.`);
+      throw boom.notFound(`ESTATUS DE ADOPCIÓN NO ENCONTRADOS.`);
 
     } else {
 
@@ -27,7 +27,7 @@ class AdoptionStatusService {
 
     if (!status) {
 
-      throw boom.notFound('ADOPTION STATUS NOT FOUND.');
+      throw boom.notFound('ESTATUS DE ADOPCIÓN NO ENCONTRADO.');
 
     } else {
 
