@@ -21,15 +21,15 @@ adoptionDetailRouter.get('/', async (req, res, next) => {
   }
 });
 
-adoptionDetailRouter.get('/:adoptionDetailId',
+adoptionDetailRouter.get('/:adoptionId',
   validatorHandler(idAdoptionDetailSchema, 'params'),
   async (req, res, next) => {
 
-    const { adoptionDetailId } = req.params;
+    const { adoptionId } = req.params;
 
     try {
 
-      const adoption = await service.findOne(adoptionDetailId);
+      const adoption = await service.findOne(adoptionId);
 
       res.status(201).json(adoption);
 
@@ -59,17 +59,17 @@ adoptionDetailRouter.post('/',
   }
 );
 
-adoptionDetailRouter.patch('/:adoptionDetailId',
+adoptionDetailRouter.patch('/:adoptionId',
   validatorHandler(idAdoptionDetailSchema, 'params'),
   validatorHandler(updateAdoptionDetailSchema, 'body'),
   async (req, res, next) => {
 
-    const { adoptionDetailId } = req.params;
+    const { adoptionId } = req.params;
     const body = req.body;
 
     try {
 
-      const adoption = await service.update(adoptionDetailId, body);
+      const adoption = await service.update(adoptionId, body);
 
       res.json({ message: 'ADOPTION DETAIL UPDATED', data: adoption });
 
@@ -80,17 +80,17 @@ adoptionDetailRouter.patch('/:adoptionDetailId',
   }
 );
 
-adoptionDetailRouter.delete('/:adoptionDetailId',
+adoptionDetailRouter.delete('/:adoptionId',
   validatorHandler(idAdoptionDetailSchema, 'params'),
   async (req, res, next) => {
 
-    const { adoptionDetailId } = req.params;
+    const { adoptionId } = req.params;
 
     try {
 
-      await service.delete(adoptionDetailId);
+      await service.delete(adoptionId);
 
-      res.json({ message: 'ADOPTION DETAIL DELETED', adoptionDetailId });
+      res.json({ message: 'ADOPTION DETAIL DELETED', adoptionId });
 
     } catch (error) {
 

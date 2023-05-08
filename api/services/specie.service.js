@@ -11,7 +11,14 @@ class SpecieService {
 
     const species = await model.findAll();
 
-    return species;
+    if (Object.keys(species).length === 0) {
+
+      throw boom.notFound(`SPECIES NOT FOUND.`);
+
+    } else {
+
+      return species;
+    }
   }
 
   async findOne(specieId) {

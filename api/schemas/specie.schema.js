@@ -12,7 +12,8 @@ const idSpecieSchema = Joi.object({
 });
 
 const createSpecieSchema = Joi.object({
-  title: title.required()
+  title: title.required(),
+  active: active
 });
 
 const updateSpecieSchema = Joi.object({

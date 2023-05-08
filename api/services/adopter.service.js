@@ -11,7 +11,14 @@ class AdopterService {
 
     const adopters = await model.findAll();
 
-    return adopters;
+    if (Object.keys(adopters).length === 0) {
+
+      throw boom.notFound(`ADOPTERS NOT FOUND.`);
+
+    } else {
+
+      return adopters;
+    }
   }
 
   async findOne(adopterId) {

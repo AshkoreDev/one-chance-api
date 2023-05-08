@@ -12,7 +12,8 @@ const idAdoptionStatusSchema = Joi.object({
 });
 
 const createAdoptionStatusSchema = Joi.object({
-  title: title.required()
+  title: title.required(),
+  active: active
 });
 
 const updateAdoptionStatusSchema = Joi.object({

@@ -11,7 +11,14 @@ class EmployeeService {
 
     const employees = await model.findAll({ include: [{ association: 'employeeUser', include: ['userRole'] }] });
 
-    return employees;
+    if (Object.keys(employees).length === 0) {
+
+      throw boom.notFound(`EMPLOYEES NOT FOUND.`);
+
+    } else {
+
+      return employees;
+    }
   }
 
   async findOne(employeeId) {

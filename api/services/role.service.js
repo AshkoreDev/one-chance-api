@@ -11,7 +11,14 @@ class RoleService {
 
     const roles = await model.findAll();
 
-    return roles;
+    if (Object.keys(roles).length === 0) {
+
+      throw boom.notFound(`ROLES NOT FOUND.`);
+
+    } else {
+
+      return roles;
+    }
   }
 
   async findOne(roleId) {

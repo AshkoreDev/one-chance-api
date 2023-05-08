@@ -11,12 +11,19 @@ class RegisterDetailService {
 
     const registers = await model.findAll();
 
-    return registers;
+    if (Object.keys(registers).length === 0) {
+
+      throw boom.notFound(`REGISTERS DETAILS NOT FOUND.`);
+
+    } else {
+
+      return registers;
+    }
   }
 
-  async findOne(registerDetailId) {
+  async findOne(registerId) {
 
-    const register = await model.findByPk(registerDetailId, {
+    const register = await model.findByPk(registerId, {
       include: [
         { association: 'registerDetailPet', include: ['petSpecie', 'petBreed', 'petAdoptionStatus'] },
         { association: 'registerDetailUser', include: ['userRole'] }
@@ -40,20 +47,20 @@ class RegisterDetailService {
     return newRegister;
   }
 
-  async update(registerDetailId, changes) {
+  async update(registerId, changes) {
 
-    const register = await this.findOne(registerDetailId);
+    const register = await this.findOne(registerId);
     const updatedRegister = await register.update(changes);
 
     return updatedRegister;
   }
 
-  async delete(registerDetailId) {
+  async delete(registerId) {
 
-    const register = await this.findOne(registerDetailId);
+    const register = await this.findOne(registerId);
     await register.destroy();
 
-    return { registerDetailId };
+    return { registerId };
   }
 };
 

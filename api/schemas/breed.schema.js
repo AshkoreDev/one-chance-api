@@ -15,7 +15,8 @@ const idBreedSchema = Joi.object({
 
 const createBreedSchema = Joi.object({
   title: title.required(),
-  specieId: specieId.required()
+  specieId: specieId.required(),
+  active: active
 });
 
 const updateBreedSchema = Joi.object({

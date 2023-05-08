@@ -21,15 +21,15 @@ registerDetailRouter.get('/', async (req, res, next) => {
   }
 });
 
-registerDetailRouter.get('/:registerDetailId',
+registerDetailRouter.get('/:registerId',
   validatorHandler(idRegisterDetailSchema, 'params'),
   async (req, res, next) => {
 
-    const { registerDetailId } = req.params;
+    const { registerId } = req.params;
 
     try {
 
-      const register = await service.findOne(registerDetailId);
+      const register = await service.findOne(registerId);
 
       res.status(201).json(register);
 
@@ -59,17 +59,17 @@ registerDetailRouter.post('/',
   }
 );
 
-registerDetailRouter.patch('/:registerDetailId',
+registerDetailRouter.patch('/:registerId',
   validatorHandler(idRegisterDetailSchema, 'params'),
   validatorHandler(updateRegisterDetailSchema, 'body'),
   async (req, res, next) => {
 
-    const { registerDetailId } = req.params;
+    const { registerId } = req.params;
     const body = req.body;
 
     try {
 
-      const register = await service.update(registerDetailId, body);
+      const register = await service.update(registerId, body);
 
       res.json({ message: 'REGISTER DETAIL UPDATED', data: register });
 
@@ -80,17 +80,17 @@ registerDetailRouter.patch('/:registerDetailId',
   }
 );
 
-registerDetailRouter.delete('/:registerDetailId',
+registerDetailRouter.delete('/:registerId',
   validatorHandler(idRegisterDetailSchema, 'params'),
   async (req, res, next) => {
 
-    const { registerDetailId } = req.params;
+    const { registerId } = req.params;
 
     try {
 
-      await service.delete(registerDetailId);
+      await service.delete(registerId);
 
-      res.json({ message: 'REGISTER DETAIL DELETED', registerDetailId });
+      res.json({ message: 'REGISTER DETAIL DELETED', registerId });
 
     } catch (error) {
 

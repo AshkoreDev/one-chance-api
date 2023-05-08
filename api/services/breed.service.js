@@ -11,7 +11,14 @@ class BreedService {
 
     const breeds = await model.findAll();
 
-    return breeds;
+    if (Object.keys(breeds).length === 0) {
+
+      throw boom.notFound(`BREEDS NOT FOUND.`);
+
+    } else {
+
+      return breeds;
+    }
   }
 
   async findOne(breedId) {

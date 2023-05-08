@@ -9,9 +9,16 @@ class PetService {
 
   async find() {
 
-    const pets = await model.findAll();
+    const pets = await model.findAll({ include: ['petSpecie', 'petBreed', 'petAdoptionStatus'] });
 
-    return pets;
+    if (Object.keys(pets).length === 0) {
+
+      throw boom.notFound(`PETS NOT FOUND.`);
+
+    } else {
+
+      return pets;
+    }
   }
 
   async findOne(petId) {

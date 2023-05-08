@@ -11,12 +11,19 @@ class AdoptionDetailService {
 
     const adoptions = await model.findAll();
 
-    return adoptions;
+    if (Object.keys(adoptions).length === 0) {
+
+      throw boom.notFound(`ADOPTIONS DETAILS NOT FOUND.`);
+
+    } else {
+
+      return adoptions;
+    }
   }
 
-  async findOne(adoptionDetailId) {
+  async findOne(adoptionId) {
 
-    const adoption = await model.findByPk(adoptionDetailId);
+    const adoption = await model.findByPk(adoptionId);
 
     if (!adoption) {
 
@@ -35,20 +42,20 @@ class AdoptionDetailService {
     return newAdoption;
   }
 
-  async update(adoptionDetailId, changes) {
+  async update(adoptionId, changes) {
 
-    const adoption = await this.findOne(adoptionDetailId);
+    const adoption = await this.findOne(adoptionId);
     const updatedAdoption = await adoption.update(changes);
 
     return updatedAdoption;
   }
 
-  async delete(adoptionDetailId) {
+  async delete(adoptionId) {
 
-    const adoption = await this.findOne(adoptionDetailId);
+    const adoption = await this.findOne(adoptionId);
     await adoption.destroy();
 
-    return { adoptionDetailId };
+    return { adoptionId };
   }
 };
 

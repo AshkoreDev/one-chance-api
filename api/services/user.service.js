@@ -12,7 +12,14 @@ class UserService {
 
     const users = await model.findAll({ include: ['userRole'] });
 
-    return users;
+    if (Object.keys(users).length === 0) {
+
+      throw boom.notFound(`USERS NOT FOUND.`);
+
+    } else {
+
+      return users;
+    }
   }
 
   async findOne(userId) {

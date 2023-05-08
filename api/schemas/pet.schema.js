@@ -42,7 +42,8 @@ const createPetSchema = Joi.object({
   currentHealth: currentHealth,
   currentMedicine: currentMedicine,
   medicalHistory: medicalHistory,
-  adoptionStatusId: adoptionStatusId
+  adoptionStatusId: adoptionStatusId,
+  active: active
 });
 
 const updatePetSchema = Joi.object({

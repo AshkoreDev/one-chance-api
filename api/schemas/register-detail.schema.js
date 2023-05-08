@@ -1,6 +1,6 @@
 const Joi = require('joi');
 
-const registerDetailId = Joi.number().integer();
+const registerId = Joi.number().integer();
 
 const petId = Joi.number().integer();
 
@@ -12,7 +12,7 @@ const observations = Joi.string().min(1).max(200);
 
 
 const idRegisterDetailSchema = Joi.object({
-  registerDetailId: registerDetailId.required()
+  registerId: registerId.required()
 });
 
 const createRegisterDetailSchema = Joi.object({

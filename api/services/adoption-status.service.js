@@ -11,7 +11,14 @@ class AdoptionStatusService {
 
     const status = await model.findAll();
 
-    return status;
+    if (Object.keys(status).length === 0) {
+
+      throw boom.notFound(`ADOPTIONS STATUS NOT FOUND.`);
+
+    } else {
+
+      return status;
+    }
   }
 
   async findOne(adoptionStatusId) {

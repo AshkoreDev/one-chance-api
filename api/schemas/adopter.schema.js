@@ -42,7 +42,8 @@ const createAdopterSchema = Joi.object({
   dateOfBirth: dateOfBirth.required(),
   telephone: telephone.required(),
   address: address.required(),
-  status: status.required()
+  status: status.required(),
+  active: active
 });
 
 const updateAdopterSchema = Joi.object({
@@ -55,7 +56,8 @@ const updateAdopterSchema = Joi.object({
   dateOfBirth: dateOfBirth,
   telephone: telephone,
   address: address,
-  status: status
+  status: status,
+  active: active
 });
 
 
